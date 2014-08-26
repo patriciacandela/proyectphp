@@ -12,8 +12,8 @@
                 $con =  strtolower(array_shift($url));
                 $con =  explode('.php', $con);
             }
-            $this->_controlador = array_shift($con);
-            $this->_metodo = array_shift($url);
+            $this->_controlador = strtolower(array_shift($con));
+            $this->_metodo = strtolower(array_shift($url));
             $this->_argumentos = $url;
             
             if (!$this->_controlador){

@@ -11,10 +11,7 @@
    require_once APP_PATH.'view.php';
    require_once APP_PATH.'registro.php';
    
-  $r =new Request();
-  echo $r->getControlador().'<br>';
-  echo $r->getMetodo().'<pre>';
-  print_r($r->getArgs());
+   Bootstrap::run(new Request());
  
 ?>
 
