@@ -11,10 +11,11 @@
                 $url =  array_filter($url);
                 $con =  strtolower(array_shift($url));
                 $con =  explode('.php', $con);
+                
+                $this->_controlador = strtolower(array_shift($con));
+                $this->_metodo = strtolower(array_shift($url));
+                $this->_argumentos = $url;
             }
-            $this->_controlador = strtolower(array_shift($con));
-            $this->_metodo = strtolower(array_shift($url));
-            $this->_argumentos = $url;
             
             if (!$this->_controlador){
                 $this->_controlador=  DEFAULT_CONTROLLER;

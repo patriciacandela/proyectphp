@@ -4,6 +4,7 @@
             $controller = $peticion->getControlador(). 'controller';
             $rutaControlador = ROOT. 'controllers'.DS. $controller. '.php';
             $metodo =$peticion->getMetodo();
+            $args=$peticion->getArgs();
             
             if (is_readable($rutaControlador)){
                 require_once $rutaControlador;
@@ -15,9 +16,15 @@
                 else{
                     $metodo='index';
                 }
-                if (isset($peticion->getArgs())){
-                    call_user_func_array(array($controlador,$metodo), $peticion->getArgs());
+                if (isset($args)){
+                    call_user_func_array(array($controller,$metodo), $args);
                 }
+                else{
+                    call_user_func_array(array($controller,$metodo));
+                } 
+            }
+            else{
+                throw new Exception('No encontrado');
             }
     }
    }

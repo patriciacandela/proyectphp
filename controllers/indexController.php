@@ -1,7 +1,12 @@
 <?php
     class indexController extends Controller{
-    public function index(){
-        echo 'Hola desde el indexController...';
+        public function __construct() {
+            parent::__construct();
+        }
+
+        public function index(){
+            $this->_view->titulo='Portada';
+            $this->_view->renderizar('index');
     }
    }
 
